@@ -28,7 +28,7 @@ app.use(errorHandler);
 export default app;
 
 // Only start server if not in serverless environment
-if (process.env.VERCEL === 'true' || process.env.NODE_ENV === 'development') {
+if (process.env.VERCEL !== '1') {
   app.listen(PORT, () => {
     console.log(`Server running on http://localhost:${PORT}`);
   });
