@@ -4,7 +4,7 @@
   
   <img src="https://img.shields.io/badge/📍%20Gorakhpur%20U.P.%20India-%232c1810?style=for-the-badge&logo=location&logoColor=white" alt="Location">
   <img src="https://img.shields.io/badge/👨‍⚕️%20Dr.%20Pankaj%20Kumar%20Srivastava-%232c1810?style=for-the-badge&logo=heartbeat&logoColor=white" alt="Dentist">
-  <img src="https://img.shields.io/badge/📞%20%2B91-9415282238-%232c1810?style=for-the-badge&logo=phone&logoColor=white" alt="Phone">
+  <img src="https://img.shields.io/badge/📞%20%2B91-9425282248-%232c1810?style=for-the-badge&logo=phone&logoColor=white" alt="Phone">
   <img src="https://img.shields.io/badge/✉️%20info@devasdental.com-%232c1810?style=for-the-badge&logo=email&logoColor=white" alt="Email">
 
 </div>
