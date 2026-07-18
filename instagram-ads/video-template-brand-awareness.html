@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Ad Template — Brand Awareness (Instagram Reel)</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background: #1a0f0a;
+            font-family: 'Inter', sans-serif;
+            overflow: hidden;
+        }
+
+        /* Instagram Reel dimensions: 1080x1920 (9:16 vertical video) */
+        .video-ad {
+            width: 1080px;
+            height: 1920px;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(160deg, #2c1810 0%, #3d281e 40%, #1a0f0a 100%);
+            border-radius: 60px;
+        }
+
+        /* Decorative geometric patterns */
+        .video-ad::before {
+            content: '';
+            position: absolute;
+            top: -300px;
+            right: -300px;
+            width: 700px;
+            height: 700px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(200, 169, 110, 0.08) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .video-ad::after {
+            content: '';
+            position: absolute;
+            bottom: -250px;
+            left: -250px;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(44, 158, 143, 0.06) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        /* Gold accent lines */
+        .accent-line-top {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, #c8a96e, #e8c88a, #c8a96e, transparent);
+        }
+
+        .accent-line-bottom {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, #c8a96e, #e8c88a, #c8a96e, transparent);
+        }
+
+        /* Content container */
+        .content {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            padding: 80px 40px;
+            text-align: center;
+        }
+
+        /* Tooth icon (large, subtle) */
+        .tooth-icon {
+            width: 120px;
+            height: 120px;
+            margin-bottom: 40px;
+            opacity: 0.3;
+            filter: blur(2px);
+        }
+
+        .tooth-icon svg {
+            width: 100%;
+            height: 100%;
+            fill: url(#goldGrad);
+            filter: drop-shadow(0 4px 20px rgba(200, 169, 110, 0.3));
+        }
+
+        .clinic-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 72px;
+            font-weight: 700;
+            color: #ffffff;
+            letter-spacing: -2px;
+            margin-bottom: 12px;
+            line-height: 1.0;
+        }
+
+        .clinic-name span {
+            background: linear-gradient(135deg, #c8a96e, #e8c88a);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .clinic-dot {
+            background: linear-gradient(135deg, #c8a96e, #e8c88a);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .divider {
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, #c8a96e, #e8c88a, #c8a96e);
+            border-radius: 2px;
+            margin: 28px 0;
+        }
+
+        .tagline {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.5);
+            font-style: italic;
+            margin-bottom: 56px;
+            letter-spacing: 1px;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 16px 56px;
+            background: linear-gradient(135deg, #c8a96e, #a8884a);
+            border-radius: 60px;
+            color: #ffffff;
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            box-shadow: 0 12px 40px rgba(200, 169, 110, 0.4);
+            margin-bottom: 20px;
+        }
+
+        .location {
+            color: rgba(255, 255, 255, 0.55);
+            font-size: 18px;
+            font-weight: 400;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+        }
+
+        .location i {
+            color: #c8a96e;
+            margin-right: 8px;
+        }
+
+        /* Floating elements for video */
+        .float-icon-1 {
+            position: absolute;
+            top: 15%;
+            left: 8%;
+            font-size: 28px;
+            color: rgba(200, 169, 110, 0.15);
+            animation: floatAround 8s ease-in-out infinite;
+        }
+
+        .float-icon-2 {
+            position: absolute;
+            bottom: 20%;
+            right: 15%;
+            font-size: 32px;
+            color: rgba(44, 158, 143, 0.12);
+            animation: floatAround 10s ease-in-out infinite reverse;
+        }
+
+        @keyframes floatAround {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            25% { transform: translateY(-15px) rotate(5deg); }
+            75% { transform: translateY(10px) rotate(-3deg); }
+        }
+
+        /* Decorative diamond pattern bottom */
+        .diamond-row {
+            position: absolute;
+            bottom: 50px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 18px;
+            z-index: 2;
+        }
+
+        .diamond {
+            width: 10px;
+            height: 10px;
+            background: rgba(200, 169, 110, 0.3);
+            transform: rotate(45deg);
+        }
+
+        .diamond:nth-child(2) { background: rgba(200, 169, 110, 0.5); }
+        .diamond:nth-child(3) { background: rgba(200, 169, 110, 0.3); }
+
+        /* Animation classes for video production */
+        .fade-in {
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+
+        .slide-up {
+            animation: slideUp 0.8s ease-out forwards;
+        }
+
+        .stagger {
+            animation: staggerIn 0.6s ease-out forwards;
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            0% { opacity: 0; transform: translateY(30px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes staggerIn {
+            0% { opacity: 0; transform: scale(0.8); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Scene 1: Opening - Logo reveal -->
+    <div class="video-ad">
+        <div class="accent-line-top"></div>
+        <div class="accent-line-bottom"></div>
+        <div class="float-icon-1"><i class="fas fa-tooth"></i></div>
+        <div class="float-icon-2"><i class="fas fa-smile"></i></div>
+
+        <div class="content">
+            <!-- Tooth icon -->
+            <div class="tooth-icon">
+                <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#c8a96e"/>
+                            <stop offset="100%" stop-color="#e8c88a"/>
+                        </linearGradient>
+                    </defs>
+                    <path d="M10 5 L11 1 L14 4 L16 1 L18 4 L21 1 L22 5 Z" fill="url(#goldGrad)"/>
+                    <path d="M16 5C11 5 8 9 8 13c0 2.5 1.2 4.5 3 5.8-.5.8-.8 1.8-.8 2.7 0 1.2.5 2.3 1.3 3.2-.8.6-1.3 1.5-1.3 2.5 0 1.7 1.3 3 3 3 1.5 0 2.7-1 3-2.5.3 1.5 1.5 2.5 3 2.5 1.7 0 3-1.3 3-3 0-1-.5-1.9-1.3-2.5.8-.9 1.3-2 1.3-3.2 0-.9-.3-1.9-.8-2.7 1.8-1.3 3-3.3 3-5.8 0-4-3-8-8-8z" fill="url(#goldGrad)" opacity="0.7"/>
+                    <circle cx="11" cy="3" r="0.6" fill="#2c1810" opacity="0.7"/>
+                    <circle cx="16" cy="2.5" r="0.7" fill="#2c1810" opacity="0.7"/>
+                    <circle cx="21" cy="3" r="0.6" fill="#2c1810" opacity="0.7"/>
+                </svg>
+            </div>
+
+            <div class="clinic-name">
+                Devas <span>Dental</span><br/>
+                Clinic<span class="clinic-dot">.</span>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="tagline">Your Smile, Our Passion</div>
+
+            <div class="badge">Best Dental Clinic in Gorakhpur</div>
+
+            <div class="location">
+                <i class="fas fa-map-marker-alt"></i> Gorakhpur
+            </div>
+        </div>
+
+        <div class="diamond-row">
+            <div class="diamond"></div>
+            <div class="diamond"></div>
+            <div class="diamond"></div>
+        </div>
+    </div>
+</body>
+</html>

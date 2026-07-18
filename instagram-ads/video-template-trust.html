@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Ad Template — Trust & Expertise (Instagram Reel)</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,500;1,500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background: #f5efe4;
+            font-family: 'Inter', sans-serif;
+            overflow: hidden;
+        }
+
+        /* Instagram Reel dimensions: 1080x1920 (9:16 vertical video) */
+        .video-ad {
+            width: 1080px;
+            height: 1920px;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(145deg, #faf7f2 0%, #f5efe4 50%, #faf7f2 100%);
+            border-radius: 60px;
+        }
+
+        /* Frame decoration */
+        .frame {
+            position: absolute;
+            top: 24px;
+            left: 24px;
+            right: 24px;
+            bottom: 24px;
+            border: 1px solid rgba(200, 169, 110, 0.2);
+            border-radius: 16px;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .frame::before {
+            content: '';
+            position: absolute;
+            top: -1px;
+            left: 80px;
+            right: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #c8a96e, #e8c88a, #c8a96e, transparent);
+            border-radius: 2px;
+        }
+
+        .frame::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 80px;
+            right: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #c8a96e, #e8c88a, #c8a96e, transparent);
+            border-radius: 2px;
+        }
+
+        /* Glow effect */
+        .glow-center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 750px;
+            height: 750px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(200, 169, 110, 0.06) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        /* Content */
+        .content {
+            position: relative;
+            z-index: 3;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            padding: 80px 60px;
+            text-align: center;
+        }
+
+        .since-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 32px;
+            background: #2c1810;
+            border-radius: 50px;
+            color: #e8c88a;
+            font-size: 16px;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 56px;
+            opacity: 0;
+            animation: slideUp 0.8s ease-out 0.5s forwards;
+        }
+
+        .since-badge i {
+            color: #c8a96e;
+        }
+
+        @keyframes slideUp {
+            0% { opacity: 0; transform: translateY(-20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        .trust-heading {
+            font-family: 'Playfair Display', serif;
+            font-size: 68px;
+            font-weight: 700;
+            color: #2c1810;
+            line-height: 1.2;
+            margin-bottom: 40px;
+            opacity: 0;
+            animation: fadeIn 0.8s ease-out 0.8s forwards;
+        }
+
+        .trust-heading .gold {
+            background: linear-gradient(135deg, #c8a96e, #a8884a);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Stats row */
+        .stats-row {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            margin-bottom: 64px;
+            width: 100%;
+            max-width: 700px;
+        }
+
+        .stat {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 24px;
+        }
+
+        .stat-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 56px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #c8a96e, #e8c88a);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.1;
+            opacity: 0;
+            animation: counterUp 1s ease-out 1.2s forwards;
+        }
+
+        .stat-number.countup {
+            animation: counterUp 1.2s ease-out forwards;
+        }
+
+        @keyframes counterUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .stat-label {
+            font-size: 16px;
+            color: #6b5b50;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .testimonial-box {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(200, 169, 110, 0.3);
+            border-radius: 24px;
+            padding: 32px 48px;
+            max-width: 700px;
+            position: relative;
+            margin-bottom: 40px;
+            opacity: 0;
+            animation: fadeIn 0.8s ease-out 2s forwards;
+        }
+
+        .testimonial-box::before {
+            content: '\201C';
+            font-family: 'Playfair Display', serif;
+            font-size: 80px;
+            color: #c8a96e;
+            opacity: 0.15;
+            position: absolute;
+            top: 16px;
+            left: 24px;
+            line-height: 1;
+        }
+
+        .testimonial-text {
+            font-size: 18px;
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-weight: 500;
+            font-style: italic;
+            color: #3a3a3a;
+            line-height: 1.7;
+            margin-bottom: 16px;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+        }
+
+        .testimonial-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #c8a96e, #4db8a8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: #ffffff;
+            font-size: 18px;
+        }
+
+        .testimonial-name {
+            font-size: 16px;
+            font-weight: 600;
+            color: #2c1810;
+        }
+
+        .testimonial-role {
+            font-size: 14px;
+            color: #8a8a8a;
+        }
+
+        .cta-small {
+            display: inline-flex;
+            align-items: center;
+            gap: 14px;
+            padding: 16px 40px;
+            background: transparent;
+            border: 2px solid #c8a96e;
+            border-radius: 50px;
+            color: #a8884a;
+            font-size: 18px;
+            font-weight: 600;
+            font-family: 'Inter', sans-serif;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            opacity: 0;
+            animation: ctaFadeIn 0.8s ease-out 3s forwards;
+        }
+
+        .cta-small:hover {
+            background: #c8a96e;
+            color: #ffffff;
+        }
+
+        @keyframes ctaFadeIn {
+            0% { opacity: 0; transform: scale(0.8); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        /* Bottom text */
+        .bottom-text {
+            position: absolute;
+            bottom: 70px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 16px;
+            font-weight: 600;
+            color: #2c1810;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            z-index: 3;
+            opacity: 0;
+            animation: fadeIn 0.8s ease-out 4s forwards;
+        }
+
+        .bottom-text span {
+            color: #c8a96e;
+        }
+
+        /* Floating decorative elements */
+        .float-icon {
+            position: absolute;
+            z-index: 1;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .float-icon-1 {
+            top: 15%;
+            left: 10%;
+            font-size: 24px;
+            color: rgba(200, 169, 110, 0.15);
+            animation: floatAround 12s ease-in-out infinite;
+        }
+
+        .float-icon-2 {
+            bottom: 20%;
+            right: 10%;
+            font-size: 28px;
+            color: rgba(44, 158, 143, 0.12);
+            animation: floatAround 14s ease-in-out infinite reverse;
+        }
+
+        @keyframes floatAround {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            25% { transform: translateY(-15px) rotate(5deg); }
+            75% { transform: translateY(10px) rotate(-3deg); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Trust & Expertise Video -->
+    <div class="video-ad">
+        <div class="frame"></div>
+        <div class="glow-center"></div>
+
+        <div class="float-icon float-icon-1"><i class="fas fa-tooth"></i></div>
+        <div class="float-icon float-icon-2"><i class="fas fa-smile"></i></div>
+
+        <div class="content">
+            <div class="since-badge">
+                <i class="fas fa-calendar-alt"></i> Since 2005
+            </div>
+
+            <div class="trust-heading">
+                Trusted by <span class="gold">Thousands</span><br/>
+                of Happy Smiles
+            </div>
+
+            <!-- Stats -->
+            <div class="stats-row">
+                <div class="stat">
+                    <div class="stat-number" style="--delay: 0s;">
+                        <span class="number-text">18+</span>
+                        <span class="unit"> Years</span>
+                    </div>
+                    <div class="stat-label">Experience</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number" style="--delay: 0.3s;">
+                        <span class="number-text">10K+</span>
+                        <span class="unit"> Patients</span>
+                    </div>
+                    <div class="stat-label">Served</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number" style="--delay: 0.6s;">
+                        <span class="number-text">4.9</span>
+                        <span class="unit">★</span>
+                    </div>
+                    <div class="stat-label">Rating</div>
+                </div>
+            </div>
+
+            <!-- Testimonial -->
+            <div class="testimonial-box">
+                <p class="testimonial-text">
+                    "The most comfortable dental experience I've ever had. Dr. Srivastava and the team are incredibly gentle and professional. My smile has never looked better!"
+                </p>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">P</div>
+                    <div>
+                        <div class="testimonial-name">Priya M.</div>
+                        <div class="testimonial-role">Regular Patient</div>
+                    </div>
+                </div>
+            </div>
+
+            <a href="#" class="cta-small">
+                Book an Appointment <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+
+        <div class="bottom-text">
+            <span>✦</span> Best Dental Clinic in Gorakhpur <span>✦</span>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Ad Template — Services Spotlight (Instagram Reel)</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background: #e8e4db;
+            font-family: 'Inter', sans-serif;
+            overflow: hidden;
+        }
+
+        /* Instagram Reel dimensions: 1080x1920 (9:16 vertical video) */
+        .video-ad {
+            width: 1080px;
+            height: 1920px;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(145deg, #faf7f2 0%, #f5efe4 50%, #faf7f2 100%);
+            border-radius: 60px;
+        }
+
+        /* Decorative background elements */
+        .bg-circle-1 {
+            position: absolute;
+            top: -400px;
+            right: -300px;
+            width: 800px;
+            height: 800px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(200, 169, 110, 0.1) 0%, transparent 70%);
+            animation: slowDrift 15s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        .bg-circle-2 {
+            position: absolute;
+            bottom: -300px;
+            left: -300px;
+            width: 700px;
+            height: 700px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(44, 158, 143, 0.06) 0%, transparent 70%);
+            animation: slowDrift 15s ease-in-out infinite reverse;
+            pointer-events: none;
+        }
+
+        @keyframes slowDrift {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(30px, -20px) scale(1.05); }
+        }
+
+        /* Top gold bar */
+        .gold-bar {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, transparent, #c8a96e, #e8c88a, #c8a96e, transparent);
+            z-index: 2;
+        }
+
+        /* Brand logo top-left */
+        .brand-logo {
+            position: absolute;
+            top: 40px;
+            left: 40px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            z-index: 5;
+            opacity: 0;
+            animation: fadeIn 0.8s ease-out 0.3s forwards;
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        .brand-logo svg {
+            width: 32px;
+            height: 32px;
+            fill: #c8a96e;
+        }
+
+        .brand-logo span {
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            font-weight: 600;
+            color: #2c1810;
+        }
+
+        .brand-logo span em {
+            font-style: normal;
+            color: #c8a96e;
+        }
+
+        /* Main content */
+        .content {
+            position: relative;
+            z-index: 3;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            padding: 120px 60px;
+            text-align: center;
+        }
+
+        /* Badge */
+        .badge-animated {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 32px;
+            background: rgba(200, 169, 110, 0.12);
+            border: 1px solid rgba(200, 169, 110, 0.3);
+            border-radius: 50px;
+            color: #a8884a;
+            font-size: 16px;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            opacity: 0;
+            animation: slideDown 0.8s ease-out 0.6s forwards;
+            margin-bottom: 32px;
+        }
+
+        .badge-animated i {
+            color: #c8a96e;
+            animation: starSpin 4s linear infinite;
+        }
+
+        @keyframes starSpin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes slideDown {
+            0% { opacity: 0; transform: translateY(-20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Heading */
+        .heading {
+            font-family: 'Playfair Display', serif;
+            font-size: 80px;
+            font-weight: 700;
+            color: #2c1810;
+            line-height: 1.1;
+            margin-bottom: 16px;
+        }
+
+        .heading .gold {
+            background: linear-gradient(135deg, #c8a96e, #a8884a);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .heading .line-1 {
+            display: block;
+            opacity: 0;
+            animation: fadeUp 0.8s ease-out 1s forwards;
+        }
+
+        .heading .line-2 {
+            display: block;
+            opacity: 0;
+            animation: fadeUp 0.8s ease-out 1.3s forwards;
+        }
+
+        @keyframes fadeUp {
+            0% { opacity: 0; transform: translateY(30px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Animated divider */
+        .divider-wrap {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            margin: 24px 0 32px;
+        }
+
+        .divider {
+            width: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #c8a96e, #e8c88a);
+            border-radius: 2px;
+            animation: dividerExpand 1s ease-out 1.8s forwards;
+        }
+
+        @keyframes dividerExpand {
+            0% { width: 0; }
+            100% { width: 80px; }
+        }
+
+        /* Description */
+        .desc {
+            font-size: 22px;
+            color: #6b5b50;
+            line-height: 1.7;
+            max-width: 700px;
+            margin-bottom: 64px;
+            opacity: 0;
+            animation: fadeUp 0.8s ease-out 2.1s forwards;
+        }
+
+        /* Service icons row with animation */
+        .services-row {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            margin-bottom: 56px;
+            width: 100%;
+            max-width: 700px;
+        }
+
+        .service-item {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(200, 169, 110, 0.2);
+            border-radius: 20px;
+            padding: 24px 40px;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: serviceSlide 0.7s ease-out forwards;
+            transition: all 0.3s ease;
+        }
+
+        .service-item:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(200, 169, 110, 0.2);
+        }
+
+        @keyframes serviceSlide {
+            0% { opacity: 0; transform: translateY(30px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        .service-item:nth-child(1) { animation-delay: 2.5s; }
+        .service-item:nth-child(2) { animation-delay: 3.0s; }
+        .service-item:nth-child(3) { animation-delay: 3.5s; }
+        .service-item:nth-child(4) { animation-delay: 4.0s; }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #f5efe4, #e8c88a);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 26px;
+            color: #a8884a;
+        }
+
+        .service-name {
+            flex: 1;
+            text-align: left;
+        }
+
+        .service-name h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            font-weight: 600;
+            color: #2c1810;
+            margin-bottom: 4px;
+        }
+
+        .service-name p {
+            font-size: 14px;
+            color: #6b5b50;
+            font-weight: 500;
+        }
+
+        /* CTA Button */
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 14px;
+            padding: 20px 60px;
+            background: linear-gradient(135deg, #c8a96e, #a8884a);
+            border: none;
+            border-radius: 50px;
+            color: #ffffff;
+            font-size: 24px;
+            font-weight: 600;
+            font-family: 'Inter', sans-serif;
+            cursor: pointer;
+            box-shadow: 0 12px 45px rgba(200, 169, 110, 0.5);
+            text-decoration: none;
+            opacity: 0;
+            animation: ctaAppear 0.8s ease-out 4.5s forwards;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 60%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent);
+            animation: shimmer 4s ease-in-out infinite 5s;
+            transform: skewX(-20deg);
+        }
+
+        @keyframes shimmer {
+            0% { left: -100%; }
+            100% { left: 200%; }
+        }
+
+        @keyframes ctaAppear {
+            0% { opacity: 0; transform: scale(0.9) translateY(20px); }
+            100% { opacity: 1; transform: scale(1) translateY(0); }
+        }
+
+        .cta-button i {
+            font-size: 18px;
+        }
+
+        /* Bottom text */
+        .bottom-tag {
+            position: absolute;
+            bottom: 60px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: rgba(107, 91, 80, 0.4);
+            font-size: 16px;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            z-index: 3;
+            opacity: 0;
+            animation: fadeIn 0.8s ease-out 5.5s forwards;
+        }
+
+        .bottom-tag i {
+            color: #c8a96e;
+            margin: 0 8px;
+        }
+
+        .bottom-tag .star {
+            color: #c8a96e;
+        }
+
+        /* Floating icons */
+        .float-icon {
+            position: absolute;
+            z-index: 1;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .float-icon-1 {
+            top: 10%;
+            left: 8%;
+            font-size: 24px;
+            color: rgba(200, 169, 110, 0.15);
+            animation: floatAround 10s ease-in-out infinite;
+        }
+
+        .float-icon-2 {
+            bottom: 15%;
+            right: 10%;
+            font-size: 28px;
+            color: rgba(44, 158, 143, 0.12);
+            animation: floatAround 12s ease-in-out infinite reverse;
+        }
+
+        @keyframes floatAround {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            25% { transform: translateY(-15px) rotate(5deg); }
+            75% { transform: translateY(10px) rotate(-3deg); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Services Spotlight Video -->
+    <div class="video-ad">
+        <div class="bg-circle-1"></div>
+        <div class="bg-circle-2"></div>
+        <div class="gold-bar"></div>
+
+        <div class="float-icon float-icon-1"><i class="fas fa-tooth"></i></div>
+        <div class="float-icon float-icon-2"><i class="fas fa-smile"></i></div>
+
+        <!-- Brand -->
+        <div class="brand-logo">
+            <svg viewBox="0 0 32 32">
+                <path d="M10 5 L11 1 L14 4 L16 1 L18 4 L21 1 L22 5 Z" fill="#c9a96e"/>
+                <path d="M16 5C11 5 8 9 8 13c0 2.5 1.2 4.5 3 5.8-.5.8-.8 1.8-.8 2.7 0 1.2.5 2.3 1.3 3.2-.8.6-1.3 1.5-1.3 2.5 0 1.7 1.3 3 3 3 1.5 0 2.7-1 3-2.5.3 1.5 1.5 2.5 3 2.5 1.7 0 3-1.3 3-3 0-1-.5-1.9-1.3-2.5.8-.9 1.3-2 1.3-3.2 0-.9-.3-1.9-.8-2.7 1.8-1.3 3-3.3 3-5.8 0-4-3-8-8-8z" fill="#f0ece4" opacity="0.9"/>
+                <circle cx="11" cy="3" r="0.6" fill="#f0ece4" opacity="0.8"/>
+                <circle cx="16" cy="2.5" r="0.7" fill="#f0ece4" opacity="0.8"/>
+                <circle cx="21" cy="3" r="0.6" fill="#f0ece4" opacity="0.8"/>
+            </svg>
+            <span>Devas <em>Dental</em></span>
+        </div>
+
+        <div class="content">
+            <div class="badge-animated">
+                <i class="fas fa-star"></i> Premium Dental Care
+            </div>
+
+            <div class="heading">
+                <span class="line-1"><span class="gold">Comprehensive</span> Services</span>
+                <span class="line-2">For Your Smile</span>
+            </div>
+
+            <div class="divider-wrap">
+                <div class="divider"></div>
+            </div>
+
+            <p class="desc">
+                From routine checkups to complete smile transformations,<br/>
+                we offer the latest treatments with gentle, personalized care.
+            </p>
+
+            <!-- Service items -->
+            <div class="services-row">
+                <div class="service-item">
+                    <div class="service-icon"><i class="fas fa-tooth"></i></div>
+                    <div class="service-name">
+                        <h4>General Dentistry</h4>
+                        <p>Comprehensive checkups, cleanings, and preventive care</p>
+                    </div>
+                </div>
+                <div class="service-item">
+                    <div class="service-icon"><i class="fas fa-smile"></i></div>
+                    <div class="service-name">
+                        <h4>Cosmetic Dentistry</h4>
+                        <p>Whitening, veneers, and smile makeovers</p>
+                    </div>
+                </div>
+                <div class="service-item">
+                    <div class="service-icon"><i class="fas fa-teeth"></i></div>
+                    <div class="service-name">
+                        <h4>Braces & Ortho</h4>
+                        <p>Traditional, ceramic, and clear aligners</p>
+                    </div>
+                </div>
+                <div class="service-item">
+                    <div class="service-icon"><i class="fas fa-shield-alt"></i></div>
+                    <div class="service-name">
+                        <h4>Emergency Care</h4>
+                        <p>24/7 pain relief and urgent treatment</p>
+                    </div>
+                </div>
+            </div>
+
+            <a href="#" class="cta-button">
+                Book an Appointment <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+
+        <div class="bottom-tag">
+            <span class="star">✦</span> Best Dental Clinic in Gorakhpur <i class="fas fa-map-marker-alt"></i>
+        </div>
+    </div>
+</body>
+</html>

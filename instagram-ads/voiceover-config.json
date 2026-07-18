@@ -1,0 +1,151 @@
+{
+  "clinic": {
+    "name": "Devas Dental Clinic",
+    "tagline": "Your Smile, Our Passion",
+    "location": "Gorakhpur",
+    "experience": "18+ years",
+    "patients": "10K+",
+    "rating": "4.9★",
+    "established": "2005"
+  },
+  "ads": {
+    "brand_awareness": {
+      "title": "Brand Awareness - Voiceover",
+      "language": "en",
+      "voice_settings": {
+        "style": "warm",
+        "speed_percent": 110,
+        "emphasis_words": ["Devas", "Dental", "Clinic", "Gorakhpur", "smiles"]
+      },
+      "scenes": [
+        {
+          "duration_seconds": 2,
+          "text": "Welcome to Devas Dental Clinic... your smile, our passion. Located right here in Gorakhpur.",
+          "visual": "logo_reveal",
+          "audio_cue": "gentle_chime"
+        },
+        {
+          "duration_seconds": 6,
+          "text": "We've been crafting perfect smiles for over 18 years, serving more than ten thousand happy patients.",
+          "visual": "counter_animation",
+          "audio_cue": "soft_tap"
+        },
+        {
+          "duration_seconds": 4,
+          "text": "Experience the difference of expert, gentle dental care.",
+          "visual": "fade_in_text",
+          "audio_cue": "none"
+        },
+        {
+          "duration_seconds": 4,
+          "text": "Devas Dental Clinic. Let's create your perfect smile.",
+          "visual": "cta_button",
+          "audio_cue": "click_sound"
+        }
+      ],
+      "total_duration": 16
+    },
+    "services_spotlight": {
+      "title": "Services Spotlight - Voiceover",
+      "language": "en",
+      "voice_settings": {
+        "style": "confident",
+        "speed_percent": 105,
+        "emphasis_words": ["comprehensive", "gentle", "advanced", "appointments"]
+      },
+      "scenes": [
+        {
+          "duration_seconds": 2,
+          "text": "From routine checkups to complete smile transformations...",
+          "visual": "hero_text_animate",
+          "audio_cue": "soft_swipe"
+        },
+        {
+          "duration_seconds": 6,
+          "text": "...we offer comprehensive dental care that's gentle, advanced, and perfectly tailored to you.",
+          "visual": "service_card_fade",
+          "audio_cue": "gentle_ping"
+        },
+        {
+          "duration_seconds": 4,
+          "text": "Our services include general dentistry, cosmetic treatments, braces alternatives, and emergency care — 24 hours a day.",
+          "visual": "service_icons",
+          "audio_cue": "soft_bell"
+        },
+        {
+          "duration_seconds": 4,
+          "text": "Experience the latest technology, the most comfortable care, and a team you can trust.",
+          "visual": "doctor_team",
+          "audio_cue": "none"
+        },
+        {
+          "duration_seconds": 4,
+          "text": "Book your appointment today and start smiling tomorrow.",
+          "visual": "cta_pulse",
+          "audio_cue": "click_sound"
+        }
+      ],
+      "total_duration": 20
+    },
+    "trust_expertise": {
+      "title": "Trust & Expertise - Voiceover",
+      "language": "en",
+      "voice_settings": {
+        "style": "reassuring",
+        "speed_percent": 100,
+        "emphasis_words": ["patients", "comfortable", "professional", "trust"]
+      },
+      "scenes": [
+        {
+          "duration_seconds": 3,
+          "text": "What our patients say says it all.",
+          "visual": "fade_in_text",
+          "audio_cue": "soft_ding"
+        },
+        {
+          "duration_seconds": 7,
+          "text": "The most comfortable dental experience I've ever had. Dr. Srivastava and the team are incredibly gentle and professional. My smile has never looked better!",
+          "visual": "testimonial_quote",
+          "audio_cue": "gentle_chime"
+        },
+        {
+          "duration_seconds": 5,
+          "text": "With 18 years of expertise, we've helped over ten thousand patients achieve perfect smiles.",
+          "visual": "stat_count_up",
+          "audio_cue": "tap_tap"
+        },
+        {
+          "duration_seconds": 5,
+          "text": "Our patients rate us 4.9 stars — the gold standard in dental care in Gorakhpur.",
+          "visual": "rating_stars",
+          "audio_cue": "sparkle"
+        },
+        {
+          "duration_seconds": 5,
+          "text": "Join thousands of happy patients. Your dream smile is just one visit away.",
+          "visual": "cta_fade",
+          "audio_cue": "click_sound"
+        }
+      ],
+      "total_duration": 25
+    }
+  },
+  "hashtags": [
+    "#DentalCare",
+    "#SmileMakeover",
+    "#GorakhpurDental",
+    "#DevasDentalClinic",
+    "#CosmeticDentistry",
+    "#Braces",
+    "#EmergencyDental",
+    "#DentalCheckup"
+  ],
+  "accessibility": {
+    "alt_text": "Devas Dental Clinic - Premium dental care in Gorakhpur with 18+ years experience, serving 10K+ patients with 4.9 rating",
+    "caption_tips": [
+      "Place key information in first 3 seconds",
+      "Use high contrast text for readability",
+      "Include CTA within first 10 seconds"
+    ]
+  }
+}
