@@ -14,11 +14,5 @@
   "routes": [
     { "src": "/api/(.*)", "dest": "/server/src/index.js" },
     { "src": "/(.*)", "dest": "/client/dist/$1" }
-  ],
-  "functions": {
-    "server/src/index.js": {
-      "runtime": "nodejs18.x",
-      "maxDuration": 10
-    }
-  }
+  ]
 }

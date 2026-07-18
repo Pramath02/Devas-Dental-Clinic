@@ -69,8 +69,6 @@ VITE_API_BASE=https://your-backend.vercel.app/api
 / (Vercel detects this root)
 ├── client/          → Static build (React/Vite)
 ├── server/          → Serverless API (Express/Prisma)
-│   └── .vercel/
-│       └── build.js → Vercel build config
 └── vercel.json      → Vercel configuration
 ```
 
