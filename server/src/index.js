@@ -17,18 +17,23 @@ app.get('/api/health', (req, res) => {
   res.json({ status: 'ok', timestamp: new Date().toISOString() });
 });
 
-// Routes
+// Routes - with /api prefix for Vercel routing
 app.use('/api/appointments', appointmentRoutes);
 app.use('/api/contact', contactRoutes);
 
-// Error handler
+// Error handler - must be after routes
 app.use(errorHandler);
+
+// 404 handler for unmatched routes
+app.use('*', (req, res) => {
+  res.status(404).json({ error: 'Not found' });
+});
 
 // Export for Vercel serverless functions
 export default app;
 
-// Only start server if not in serverless environment
-if (process.env.VERCEL !== '1') {
+// Only start server if not in serverless environment (Vercel sets VERCEL env)
+if (!process.env.VERCEL && !process.env.HEADLESS) {
   app.listen(PORT, () => {
     console.log(`Server running on http://localhost:${PORT}`);
   });

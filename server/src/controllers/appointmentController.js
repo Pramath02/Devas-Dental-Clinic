@@ -1,6 +1,16 @@
 import { PrismaClient } from '@prisma/client';
 
-const prisma = new PrismaClient();
+let prisma;
+
+if (process.env.NODE_ENV === 'production') {
+  // Use globalFor in production to prevent multiple Prisma Client instances
+  if (!global.prisma) {
+    global.prisma = new PrismaClient();
+  }
+  prisma = global.prisma;
+} else {
+  prisma = new PrismaClient();
+}
 
 export async function createAppointment(req, res, next) {
   try {
