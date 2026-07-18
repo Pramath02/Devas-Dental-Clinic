@@ -12,6 +12,7 @@
     "db:studio": "cd server && npx prisma studio"
   },
   "devDependencies": {
+    "@vitejs/plugin-react": "^5.2.0",
     "concurrently": "^9.1.0"
   },
   "dependencies": {
