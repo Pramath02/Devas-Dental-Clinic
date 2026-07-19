@@ -70,9 +70,9 @@ export default function StatsSection() {
           </div>
           <div className="stat-item">
             <div className="stat-number">
-              <Counter target={1} suffix="+" />
+              <Counter target={1} />
             </div>
-            <div className="stat-label">Expert Dentist</div>
+            <div className="stat-label">Expert Doctor</div>
           </div>
           <div className="stat-item">
             <div className="stat-number">

@@ -143,7 +143,7 @@ export default function LoadingScreen({ isLoading, onFinish }) {
           position: 'relative',
           animation: 'lsPulse 2s ease-in-out infinite',
         }}>
-          <img src="/logo.png" alt="Devas Dental Clinic" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
+          <img src="/tooth.png" alt="Devas Dental Clinic" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
         </div>
 
         {/* Title */}

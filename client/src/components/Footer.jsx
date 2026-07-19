@@ -8,7 +8,7 @@ export default function Footer() {
           <div className="footer-brand">
             <h3>
               <span className="logo-icon" style={{ width: '28px', height: '28px', display: 'inline-block', verticalAlign: 'middle', marginRight: '8px' }}>
-                <img src="/logo.png" alt="Devas Dental Clinic" style={{ width: '100%', height: '100%', objectFit: 'contain', display: 'block' }} />
+                <img src="/tooth.png" alt="Devas Dental Clinic" style={{ width: '100%', height: '100%', objectFit: 'contain', display: 'block' }} />
               </span>
               Devas <span>Dental Clinic.</span>
             </h3>

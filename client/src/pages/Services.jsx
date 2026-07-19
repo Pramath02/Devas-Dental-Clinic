@@ -5,7 +5,7 @@ export default function Services() {
     <>
       <section className="page-hero">
         <div className="container">
-          <h1 data-animate="fade-up">Our Services</h1>
+          <h1 data-animate="blur-in">Our Services</h1>
           <div className="section-divider" style={{ margin: '20px auto', background: 'linear-gradient(90deg, var(--gold), var(--gold-light))' }}></div>
           <p data-animate="fade-up" data-delay="100">Comprehensive dental care tailored to your unique needs — all under one roof.</p>
         </div>

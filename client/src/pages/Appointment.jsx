@@ -30,7 +30,7 @@ export default function Appointment() {
     <>
       <section className="page-hero">
         <div className="container">
-          <h1 data-animate="fade-up">Book Your Appointment</h1>
+          <h1 data-animate="blur-in">Book Your Appointment</h1>
           <div className="section-divider" style={{ margin: '20px auto', background: 'linear-gradient(90deg, var(--gold), var(--gold-light))' }}></div>
           <p data-animate="fade-up" data-delay="100">Fill out the form below and our team will confirm your visit within 24 hours.</p>
           <div data-animate="fade-up" data-delay="150" style={{
@@ -141,9 +141,9 @@ export default function Appointment() {
             </form>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: 20, marginTop: 40 }} data-animate="fade-up">
+          <div className="stagger-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: 20, marginTop: 40 }} data-animate="fade-up">
             {infoCards.map((card, i) => (
-              <div key={i} className="glass-card" style={{ textAlign: 'center' }}>
+              <div key={i} className="glass-card stagger-item" style={{ textAlign: 'center', '--stagger-index': i }}>
                 <div style={{ fontSize: '1.5rem', color: 'var(--gold)', marginBottom: 8 }}><i className={card.icon}></i></div>
                 <h4 style={{ fontFamily: 'var(--font-body)', fontWeight: 600, marginBottom: 8 }}>{card.title}</h4>
                 <p style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>{card.desc}</p>

@@ -11,7 +11,7 @@ export default function Home({ onThreeLoaded }) {
         <div className="hero-overlay"></div>
         <div className="hero-inner">
           <div className="hero-left">
-            <div className="hero-badge" data-animate="fade-up">Since 2005</div>
+            <div className="hero-badge" data-animate="blur-in">Since 2005</div>
             <h2 data-animate="fade-up" data-delay="100">
               Your Smile,<br />
               <span className="highlight">Our Passion</span>
@@ -61,14 +61,14 @@ export default function Home({ onThreeLoaded }) {
       </section>
 
       {/* Testimonials */}
-      <section className="section testimonials-section" data-animate="fade-up">
+      <section className="section testimonials-section" data-animate="slide-up">
         <div className="container">
           <div className="section-divider"></div>
           <h2 className="section-title">What Our Patients Say</h2>
           <p className="section-subtitle">Hear from the patients who trust us with their smiles every day.</p>
-          <div className="testimonials-grid">
+          <div className="testimonials-grid stagger-grid">
             {testimonials.map((t, i) => (
-              <div key={i} className="testimonial-card">
+              <div key={i} className="testimonial-card stagger-item" style={{ '--stagger-index': i }}>
                 <p className="testimonial-text">"{t.text}"</p>
                 <div className="testimonial-author">
                   <div className="testimonial-avatar">{t.initial}</div>
@@ -86,9 +86,9 @@ export default function Home({ onThreeLoaded }) {
       {/* Features */}
       <section className="features-section" data-animate="fade-up">
         <div className="container">
-          <div className="features-grid">
+          <div className="features-grid stagger-grid">
             {features.map((f, i) => (
-              <div key={i} className="feature-item">
+              <div key={i} className="feature-item stagger-item" style={{ '--stagger-index': i }}>
                 <div className="feature-icon"><i className={f.icon}></i></div>
                 <h4>{f.title}</h4>
                 <p>{f.desc}</p>

@@ -27,7 +27,7 @@ export default function Contact() {
     <>
       <section className="page-hero">
         <div className="container">
-          <h1 data-animate="fade-up">Contact Us</h1>
+          <h1 data-animate="blur-in">Contact Us</h1>
           <div className="section-divider" style={{ margin: '20px auto', background: 'linear-gradient(90deg, var(--gold), var(--gold-light))' }}></div>
           <p data-animate="fade-up" data-delay="100">We'd love to hear from you. Reach out with any questions or to schedule your visit.</p>
         </div>
@@ -39,19 +39,21 @@ export default function Contact() {
             <div data-animate="fade-right">
               <div className="contact-info-card">
                 <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.8rem', marginBottom: 32 }}>Get in Touch</h2>
-                {contactInfo.map((item, i) => (
-                  <div key={i} className="contact-info-item">
-                    <div className="contact-info-icon"><i className={item.icon}></i></div>
-                    <div>
-                      <h4>{item.label}</h4>
-                      {item.href ? (
-                        <p><a href={item.href} style={{ color: 'inherit', textDecoration: 'none' }}>{item.value}</a></p>
-                      ) : (
-                        <p style={{ whiteSpace: 'pre-line' }}>{item.value}</p>
-                      )}
+                <div className="stagger-grid" style={{ display: 'contents' }}>
+                  {contactInfo.map((item, i) => (
+                    <div key={i} className="contact-info-item stagger-item" style={{ '--stagger-index': i }}>
+                      <div className="contact-info-icon"><i className={item.icon}></i></div>
+                      <div>
+                        <h4>{item.label}</h4>
+                        {item.href ? (
+                          <p><a href={item.href} style={{ color: 'inherit', textDecoration: 'none' }}>{item.value}</a></p>
+                        ) : (
+                          <p style={{ whiteSpace: 'pre-line' }}>{item.value}</p>
+                        )}
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
                 <div style={{ marginTop: 32, paddingTop: 24, borderTop: 'var(--border-light)' }}>
                   <h4 style={{ marginBottom: 12, fontFamily: 'var(--font-heading)' }}>Follow Us</h4>
                   <div className="social-links">

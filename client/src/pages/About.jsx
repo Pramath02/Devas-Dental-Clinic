@@ -5,7 +5,7 @@ export default function About() {
     <>
       <section className="page-hero">
         <div className="container">
-          <h1 data-animate="fade-up">About Devas Dental Clinic</h1>
+          <h1 data-animate="blur-in">About Devas Dental Clinic</h1>
           <div className="section-divider" style={{ margin: '20px auto', background: 'linear-gradient(90deg, var(--gold), var(--gold-light))' }}></div>
           <p data-animate="fade-up" data-delay="100">Two decades of compassionate care, one smile at a time.</p>
         </div>
@@ -15,7 +15,7 @@ export default function About() {
         <div className="container">
           <div className="about-content">
             <div className="about-image" data-animate="fade-right">
-              <img src="/logo.png" alt="Devas Dental Clinic" style={{ width: '100px', height: '100px', objectFit: 'contain', opacity: 0.6 }} />
+              <img src="/tooth.png" alt="Devas Dental Clinic" style={{ width: '100px', height: '100px', objectFit: 'contain', opacity: 0.6 }} />
             </div>
             <div className="about-text" data-animate="fade-left">
               <h2>Our Story</h2>
@@ -31,9 +31,9 @@ export default function About() {
 
       <section className="section testimonials-section" data-animate="fade-up">
         <div className="container">
-          <div className="values-grid">
+          <div className="values-grid stagger-grid">
             {values.map((v, i) => (
-              <div key={i} className="glass-card" style={{ textAlign: 'center' }}>
+              <div key={i} className="glass-card stagger-item" style={{ textAlign: 'center', '--stagger-index': i }}>
                 <div style={{ fontSize: '2rem', color: 'var(--gold)', marginBottom: 16 }}><i className={v.icon}></i></div>
                 <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.4rem', marginBottom: 12 }}>{v.title}</h3>
                 <p style={{ color: 'var(--text-secondary)', lineHeight: 1.7 }}>{v.desc}</p>

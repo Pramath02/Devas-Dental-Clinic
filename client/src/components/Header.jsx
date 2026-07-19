@@ -32,7 +32,7 @@ export default function Header() {
       <div className="container">
         <Link to="/" className="logo">
           <span className="logo-icon">
-            <img src="/logo.png" alt="Devas Dental Clinic" className="logo-img" />
+            <img src="/tooth.png" alt="Devas Dental Clinic" className="logo-img" />
           </span>
           Devas<span> Dental Clinic.</span>
         </Link>
