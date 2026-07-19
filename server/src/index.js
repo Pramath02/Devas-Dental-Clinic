@@ -26,9 +26,9 @@ app.get('/health', (req, res) => {
   res.json({ status: 'ok', timestamp: new Date().toISOString(), platform: 'vercel' });
 });
 
-// API Routes - at root level (middleware normalized the path)
-app.use('/', appointmentRoutes);
-app.use('/', contactRoutes);
+// API Routes - mount at path-specific points so sub-router handlers match
+app.use('/appointments', appointmentRoutes);
+app.use('/contact', contactRoutes);
 
 // Error handler
 app.use((err, req, res, next) => {
