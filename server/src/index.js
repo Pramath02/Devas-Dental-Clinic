@@ -9,14 +9,26 @@ const app = express();
 app.use(cors({ origin: '*', credentials: true }));
 app.use(express.json());
 
+// Middleware to normalize routes for both Vercel (strips /api) and Vite (preserves /api)
+const apiPathRewriter = (req, res, next) => {
+  // If request path starts with /api, strip it to normalize for Vercel
+  // Vercel routes strip /api prefix, Vite proxy preserves it
+  if (req.path.startsWith('/api/') || req.path === '/api') {
+    req.url = req.url.replace(/^\/api/, '') || '/';
+  }
+  next();
+};
+
+app.use(apiPathRewriter);
+
 // Health check - Vercel routes /api/health here
-app.get('/api/health', (req, res) => {
+app.get('/health', (req, res) => {
   res.json({ status: 'ok', timestamp: new Date().toISOString(), platform: 'vercel' });
 });
 
-// API Routes - Mail for /api/appointments and /api/contact from Vercel routing
-app.use('/api/appointments', appointmentRoutes);
-app.use('/api/contact', contactRoutes);
+// API Routes - at root level (middleware normalized the path)
+app.use('/', appointmentRoutes);
+app.use('/', contactRoutes);
 
 // Error handler
 app.use((err, req, res, next) => {
